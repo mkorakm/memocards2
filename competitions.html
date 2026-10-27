@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Соревнования</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Соревнования</h1>
+      <p class="page-head__sub">Проверьте, насколько хорошо вы выучили карточки, в сравнении с другими</p>
+    </div>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Последние соревнования</h2></div>
+      <div class="card-row">
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Алгебра</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 14 участников</span><span>до 20 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Геометрия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 15 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 9 участников</span><span>до 18 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Тригонометрия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 15 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 6 участников</span><span>старт 25 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Физика</h3>
+          <p class="deck-card__desc">Состязание по колоде: 25 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 22 участника</span><span>завершено 5 окт</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Биология</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 11 участников</span><span>завершено 1 окт</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Английский B1</h3>
+          <p class="deck-card__desc">Состязание по колоде: 30 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 31 участник</span><span>до 22 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">История</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 8 участников</span><span>старт 28 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Ваши соревнования</h2></div>
+      <div class="card-row">
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Химия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User19</span><span>до 19 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" disabled>Вы участвуете ✓</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Биология</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User3</span><span>до 21 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" disabled>Вы участвуете ✓</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Английский B1</h3>
+          <p class="deck-card__desc">Состязание по колоде: 30 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User27</span><span>старт 24 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" disabled>Вы участвуете ✓</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Немецкий A2</h3>
+          <p class="deck-card__desc">Состязание по колоде: 25 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User11</span><span>старт 26 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" disabled>Вы участвуете ✓</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">География</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User5</span><span>завершено 3 окт</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Физика</h3>
+          <p class="deck-card__desc">Состязание по колоде: 25 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>⚔ Соперник: User8</span><span>завершено 29 сен</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Каталог</h2></div>
+      <div class="toolbar">
+        <div class="dropdown" data-dropdown="filter">
+          <button class="dropdown__btn" type="button" aria-expanded="false"><span class="dropdown__label">Фильтры:</span><span class="dropdown__value">Все темы</span><span class="dropdown__arrow">▼</span></button>
+          <div class="dropdown__menu">
+            <button class="dropdown__item is-selected" data-value="all" type="button">Все темы</button>
+            <button class="dropdown__item" data-value="math" type="button">Математика</button>
+            <button class="dropdown__item" data-value="science" type="button">Естественные науки</button>
+            <button class="dropdown__item" data-value="lang" type="button">Языки</button>
+            <button class="dropdown__item" data-value="human" type="button">Гуманитарные</button>
+            <button class="dropdown__item" data-value="it" type="button">IT</button>
+          </div>
+        </div>
+        <div class="dropdown" data-dropdown="sort">
+          <button class="dropdown__btn" type="button" aria-expanded="false"><span class="dropdown__label">Сортировка:</span><span class="dropdown__value">По названию</span><span class="dropdown__arrow">▼</span></button>
+          <div class="dropdown__menu">
+            <button class="dropdown__item is-selected" data-value="name" type="button">По названию</button>
+            <button class="dropdown__item" data-value="popular" type="button">По популярности</button>
+            <button class="dropdown__item" data-value="new" type="button">Сначала новые</button>
+          </div>
+        </div>
+        <span class="toolbar__count" data-count>Найдено: 12</span>
+      </div>
+      <div class="card-grid" data-catalog>
+        <article class="deck-card" data-title="История" data-category="human" data-pop="14" data-date="20261001">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">История</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 14 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="География" data-category="human" data-pop="9" data-date="20261002">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">География</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 9 участников</span><span>скоро старт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Программирование" data-category="it" data-pop="22" data-date="20261003">
+          <div class="deck-card__top"><span class="tag tag--it">IT</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Программирование</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 22 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Литература" data-category="human" data-pop="6" data-date="20261004">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Литература</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 6 участников</span><span>скоро старт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Экономика" data-category="human" data-pop="11" data-date="20261005">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Экономика</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 11 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Астрономия" data-category="science" data-pop="5" data-date="20261006">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Астрономия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 5 участников</span><span>завершено</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card" data-title="Философия" data-category="human" data-pop="8" data-date="20261007">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Философия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 8 участников</span><span>скоро старт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Психология" data-category="human" data-pop="17" data-date="20261008">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Психология</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 17 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Статистика" data-category="math" data-pop="12" data-date="20261009">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Статистика</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 12 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Английский B1" data-category="lang" data-pop="31" data-date="20261010">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Английский B1</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 31 участников</span><span>идёт сейчас</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card" data-title="Алгебра" data-category="math" data-pop="26" data-date="20261011">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Алгебра</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 26 участников</span><span>завершено</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card" data-title="Химия" data-category="science" data-pop="10" data-date="20261012">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Химия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 10 участников</span><span>скоро старт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item active"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+// _variables.scss — размеры проекта и ссылки на цвета темы.
+// Сами цвета лежат в _themes.scss как CSS-переменные (--color-*),
+// поэтому тему можно переключать на лету атрибутом data-theme.
+
+$color-bg:          var(--color-bg);
+$color-surface:     var(--color-surface);
+$color-header:      var(--color-header);
+$color-logo:        var(--color-logo);
+$color-accent:      var(--color-accent);
+$color-accent-dark: var(--color-accent-dark);
+$color-on-accent:   var(--color-on-accent);
+$color-text:        var(--color-text);
+$color-muted:       var(--color-muted);
+$color-border:      var(--color-border);
+$color-error:       var(--color-error);
+$color-error-bg:    var(--color-error-bg);
+$color-success:     var(--color-success);
+$color-success-bg:  var(--color-success-bg);
+
+$shadow-card:  0 2px 8px rgba(var(--shadow-rgb) / 0.08);
+$shadow-hover: 0 10px 24px rgba(var(--shadow-rgb) / 0.18);
+$shadow-bar:   0 2px 10px rgba(var(--shadow-rgb) / 0.15);
+$shadow-focus: 0 0 0 3px rgba(var(--shadow-rgb) / 0.2);
+
+$radius-card: 14px;
+$radius-chip: 10px;
+
+$gap-sm: 8px;
+$gap-md: 16px;
+$gap-lg: 24px;
+
+$header-height: 56px;
+$nav-height: 52px;
+
+$container-mobile:  520px;
+$container-tablet:  760px;
+$container-desktop: 1240px;
+
+$card-row-width:         240px;
+$card-row-width-desktop: 290px;
+
+$breakpoint-tablet:  700px;
+$breakpoint-desktop: 1000px;

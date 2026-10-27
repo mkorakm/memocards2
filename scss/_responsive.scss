@@ -1,0 +1,67 @@
+// _responsive.scss — планшет (от 700px) и компьютер (от 1000px).
+// Шапка и нижняя панель остаются на всю ширину экрана, меняется
+// ширина .container, число колонок в сетках и размеры.
+
+@media (min-width: $breakpoint-tablet) {
+  .container {
+    max-width: $container-tablet;
+  }
+
+  .card-grid .deck-card {
+    @include cols(2, 16px);
+  }
+
+  .menu-item {
+    @include cols(2, 8px);
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .container {
+    max-width: $container-desktop;
+  }
+
+  .header {
+    height: 64px;
+
+    &__inner { padding: 0 32px; }
+    &__title { font-size: 20px; }
+  }
+
+  .content {
+    padding: 32px;
+    gap: 36px;
+  }
+
+  .page-head__title { font-size: 30px; }
+  .section__title   { font-size: 19px; }
+
+  .hero {
+    @include flex(row, space-between, center, nowrap, 32px);
+    padding: 28px 32px;
+
+    &__sub { margin-bottom: 18px; }
+    &__stats { flex: 0 1 560px; }
+  }
+
+  .deck-card {
+    min-height: 210px;
+    padding: 22px;
+  }
+
+  .card-row .deck-card {
+    flex-basis: $card-row-width-desktop;
+  }
+
+  .card-grid .deck-card {
+    @include cols(4, 48px);
+  }
+
+  .bottom-nav__item {
+    font-size: 13px;
+  }
+
+  .toast-container {
+    bottom: 80px;
+  }
+}

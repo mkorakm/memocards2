@@ -1,0 +1,225 @@
+// _base.scss — сброс, каркас страницы, шапка, кнопки, нижняя панель
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: $color-bg;
+  color: $color-text;
+  min-height: 100vh;
+  @include flex(column, flex-start, stretch);
+  transition: background 0.2s, color 0.2s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// центрирует содержимое и ограничивает ширину — общая сетка
+// для шапки, контента и нижней панели
+.container {
+  width: 100%;
+  max-width: $container-mobile;
+  margin: 0 auto;
+}
+
+// ---- Шапка: полоса на всю ширину, закреплена сверху ----
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: $header-height;
+  flex-shrink: 0;
+  background: $color-header;
+  box-shadow: $shadow-bar;
+  transition: background 0.2s;
+
+  &__inner {
+    @include flex(row, space-between, center);
+    height: 100%;
+    padding: 0 $gap-md;
+  }
+
+  &__brand {
+    @include flex(row, flex-start, center, nowrap, 10px);
+  }
+
+  &__logo {
+    @include flex(row, center, center);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $color-logo;
+    color: $color-on-accent;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__actions {
+    @include flex(row, flex-end, center, nowrap, $gap-sm);
+  }
+
+  &__user {
+    @include flex(row, center, center);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $color-surface;
+    color: $color-accent;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+// круглая кнопка-иконка (смена темы)
+.icon-btn {
+  @include flex(row, center, center);
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: $color-surface;
+  font-size: 16px;
+  transition: transform 0.15s;
+
+  &:hover { transform: rotate(20deg); }
+  &:active { transform: scale(0.9); }
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+// ---- Основная область ----
+.content {
+  flex: 1;
+  padding: $gap-md;
+  @include flex(column, flex-start, stretch, nowrap, 28px);
+}
+
+.page-head {
+  &__title {
+    font-size: 26px;
+    font-weight: 800;
+  }
+  &__sub {
+    margin-top: 4px;
+    font-size: 14px;
+    color: $color-muted;
+  }
+}
+
+.section {
+  &__head {
+    @include flex(row, space-between, baseline);
+    margin-bottom: 12px;
+  }
+  &__title {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  &__link {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-accent;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ---- Кнопки: обычная, контурная, маленькая, на всю ширину ----
+// состояния: наведение, нажатие, фокус с клавиатуры, отключена
+.btn {
+  @include flex(row, center, center, nowrap, 6px);
+  padding: 10px 18px;
+  border: 1px solid $color-accent;
+  border-radius: $radius-chip;
+  background: $color-accent;
+  color: $color-on-accent;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+
+  &:hover { background: $color-accent-dark; }
+  &:active { transform: scale(0.97); }
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 2px;
+  }
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-accent;
+    &:hover {
+      background: $color-accent;
+      color: $color-on-accent;
+    }
+  }
+  &--sm {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  &--block {
+    width: 100%;
+  }
+}
+
+// ---- Нижняя панель: полоса на всю ширину, закреплена снизу ----
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  flex-shrink: 0;
+  background: $color-header;
+  box-shadow: 0 -2px 10px rgba(var(--shadow-rgb) / 0.15);
+  transition: background 0.2s;
+
+  &__inner {
+    @include flex(row, space-between, stretch);
+  }
+
+  &__item {
+    flex: 1;
+    @include flex(column, center, center, nowrap, 2px);
+    min-height: $nav-height;
+    padding: 6px 0;
+    border-top: 3px solid transparent;
+    font-size: 12px;
+    font-weight: 600;
+
+    &.active {
+      color: $color-accent;
+      border-top-color: $color-accent;
+      background: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &__icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+}

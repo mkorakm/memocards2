@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Профиль</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Профиль</h1>
+      <p class="page-head__sub">Аккаунт, оформление и настройки</p>
+    </div>
+    <section class="profile-card">
+      <div class="profile-card__avatar" data-user-initial>Г</div>
+      <div class="profile-card__info">
+        <div class="profile-card__name" data-user-name>Гость</div>
+        <div class="profile-card__email" data-user-email>Войдите, чтобы сохранять прогресс</div>
+      </div>
+      <div class="profile-card__actions" data-guest-only>
+        <a class="btn btn--sm" href="login.html">Войти</a>
+        <a class="btn btn--ghost btn--sm" href="register.html">Создать аккаунт</a>
+      </div>
+      <div class="profile-card__actions" data-user-only hidden>
+        <button class="btn btn--ghost btn--sm" type="button" data-action="logout">Выйти</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Цветовая тема</h2></div>
+      <div class="theme-list">
+        <button class="theme-btn is-selected" type="button" data-theme-set="rose"><span class="theme-btn__swatch theme-btn__swatch--rose"></span>Розовая</button>
+        <button class="theme-btn" type="button" data-theme-set="dark"><span class="theme-btn__swatch theme-btn__swatch--dark"></span>Тёмная</button>
+        <button class="theme-btn" type="button" data-theme-set="ocean"><span class="theme-btn__swatch theme-btn__swatch--ocean"></span>Морская</button>
+      </div>
+    </section>
+      <nav class="menu-list">
+        <a href="login.html" class="menu-item"><span class="menu-item__icon">🔑</span><span class="menu-item__text"><span class="menu-item__title">Вход/Регистрация</span><span class="menu-item__sub">Войдите или создайте аккаунт</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="profile.html" class="menu-item"><span class="menu-item__icon">🧾</span><span class="menu-item__text"><span class="menu-item__title">Личная информация</span><span class="menu-item__sub">Имя, почта, аватар</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="competitions.html" class="menu-item"><span class="menu-item__icon">🏆</span><span class="menu-item__text"><span class="menu-item__title">Мои соревнования</span><span class="menu-item__sub">Активные и завершённые</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="decks.html" class="menu-item"><span class="menu-item__icon">📚</span><span class="menu-item__text"><span class="menu-item__title">Мои колоды</span><span class="menu-item__sub">Созданные вами наборы карточек</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="profile.html" class="menu-item"><span class="menu-item__icon">📊</span><span class="menu-item__text"><span class="menu-item__title">Статистика аккаунта</span><span class="menu-item__sub">Прогресс, точность и результаты</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="profile.html" class="menu-item"><span class="menu-item__icon">⚙️</span><span class="menu-item__text"><span class="menu-item__title">Настройки</span><span class="menu-item__sub">Тема, уведомления, язык</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="profile.html" class="menu-item"><span class="menu-item__icon">🛠️</span><span class="menu-item__text"><span class="menu-item__title">Техническая поддержка</span><span class="menu-item__sub">Помощь и частые вопросы</span></span><span class="menu-item__chevron">›</span></a>
+        <a href="profile.html" class="menu-item"><span class="menu-item__icon">💬</span><span class="menu-item__text"><span class="menu-item__title">Оставить отзыв</span><span class="menu-item__sub">Расскажите, что стоит улучшить</span></span><span class="menu-item__chevron">›</span></a>
+      </nav>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item active"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

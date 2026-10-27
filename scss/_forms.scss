@@ -1,0 +1,177 @@
+// _forms.scss — регистрация / вход и отображение ошибок пользователя:
+//  - ошибка под полем (красная рамка + текст с иконкой "!")
+//  - общий баннер над формой (.alert)
+
+.auth {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, $gap-md);
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 24px;
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+  }
+  &__sub {
+    margin-top: -8px;
+    font-size: 14px;
+    color: $color-muted;
+  }
+  &__form {
+    @include flex(column, flex-start, stretch, nowrap, 14px);
+  }
+  &__alt {
+    @include flex(column, flex-start, stretch, nowrap, 10px);
+    padding-top: 16px;
+    border-top: 1px solid $color-border;
+    font-size: 13px;
+    color: $color-muted;
+    text-align: center;
+  }
+}
+
+// ---- Поле формы ----
+.field {
+  @include flex(column, flex-start, stretch, nowrap, 6px);
+
+  &__label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  &__wrap {
+    @include flex(row, flex-start, stretch, nowrap, $gap-sm);
+  }
+  &__input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius-chip;
+    background: $color-surface;
+    color: $color-text;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+
+    &::placeholder {
+      color: $color-muted;
+      opacity: 0.7;
+    }
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: $shadow-focus;
+    }
+  }
+  &__toggle {
+    padding: 0 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius-chip;
+    background: $color-surface;
+    color: $color-muted;
+    font-size: 13px;
+    font-weight: 600;
+
+    &:hover { color: $color-accent; }
+    &:active { transform: scale(0.96); }
+  }
+  &__error {
+    @include flex(row, flex-start, flex-start, nowrap, 6px);
+    font-size: 13px;
+    line-height: 1.35;
+    color: $color-error;
+
+    &::before {
+      content: '!';
+      @include flex(row, center, center);
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background: $color-error;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+    }
+  }
+  &__hint {
+    font-size: 12px;
+    color: $color-muted;
+  }
+
+  // поле с ошибкой: красная рамка и подсветка
+  &.has-error {
+    .field__input {
+      border-color: $color-error;
+      background: $color-error-bg;
+    }
+  }
+}
+
+// чекбокс "Принимаю условия"
+.check {
+  @include flex(row, flex-start, flex-start, nowrap, 10px);
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+
+  input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: $color-accent;
+  }
+}
+
+// ---- Баннер сообщения: ошибка / успех / информация ----
+.alert {
+  @include flex(row, flex-start, flex-start, nowrap, 10px);
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+
+  &[hidden] { display: none; }
+
+  &__icon {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+  &__title {
+    font-weight: 700;
+  }
+  &__text {
+    font-size: 13px;
+    opacity: 0.9;
+  }
+
+  &--error {
+    background: $color-error-bg;
+    border-color: $color-error;
+    color: $color-error;
+    .alert__icon { background: $color-error; }
+  }
+  &--success {
+    background: $color-success-bg;
+    border-color: $color-success;
+    color: $color-success;
+    .alert__icon { background: $color-success; }
+  }
+  &--info {
+    background: $color-bg;
+    border-color: $color-border;
+    color: $color-text;
+    .alert__icon { background: $color-accent; }
+  }
+}

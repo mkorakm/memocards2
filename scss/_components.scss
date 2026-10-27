@@ -1,0 +1,132 @@
+// _components.scss — главный экран (hero), карточки, теги, ряды и сетки
+
+// ---- Hero на Главной ----
+.hero {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, $gap-md);
+  padding: 20px;
+
+  &__text {
+    @include flex(column, flex-start, flex-start);
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 800;
+  }
+  &__sub {
+    margin: 4px 0 14px;
+    font-size: 14px;
+    color: $color-muted;
+  }
+  &__stats {
+    @include flex(row, flex-start, stretch, wrap, $gap-sm);
+  }
+}
+
+.stat {
+  flex: 1 1 96px;
+  @include flex(column, flex-start, flex-start, nowrap, 2px);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: $color-bg;
+
+  &__value {
+    font-size: 20px;
+    font-weight: 800;
+    color: $color-accent;
+  }
+  &__label {
+    font-size: 12px;
+    color: $color-muted;
+  }
+}
+
+// ---- Теги и бейджи ----
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  &--math    { @include tag-color(#FBE1E2, #8B2635); }
+  &--science { @include tag-color(#FDE8D3, #9A4A12); }
+  &--lang    { @include tag-color(#EADCF8, #5B2E91); }
+  &--human   { @include tag-color(#F6EBC8, #7A5B0C); }
+  &--it      { @include tag-color(#D9F0E6, #1F6B4A); }
+  &--live    { @include tag-color(#D9F0E6, #1F6B4A); }
+  &--soon    { @include tag-color(#FDE8D3, #9A4A12); }
+  &--done    { @include tag-color(#ECECEC, #666666); }
+}
+
+.badge-latex {
+  padding: 2px 7px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  font-family: 'Times New Roman', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: $color-accent;
+}
+
+// ---- Карточка колоды / соревнования ----
+.deck-card {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, 10px);
+  min-height: 190px;
+  padding: 18px;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-hover;
+  }
+  &[hidden] { display: none; }
+
+  &__top {
+    @include flex(row, space-between, center, nowrap, $gap-sm);
+    min-height: 26px;
+  }
+  &__topic {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  &__desc {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.45;
+    color: $color-muted;
+  }
+  &__meta {
+    @include flex(row, space-between, center, nowrap, $gap-sm);
+    padding-top: 12px;
+    border-top: 1px solid $color-border;
+    font-size: 12px;
+    color: $color-muted;
+  }
+}
+
+// ряд со скроллом: карточки фиксированной ширины, последняя видна
+// не целиком — подсказка, что ряд можно прокрутить
+.card-row {
+  @include flex(row, flex-start, stretch, nowrap, $gap-md);
+  padding: 4px 2px 14px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $color-header transparent;
+
+  .deck-card {
+    flex: 0 0 $card-row-width;
+  }
+}
+
+// сетка: карточки одинаковой ширины, переносятся на новую строку
+// (на телефоне 1 колонка, на планшете 2, на компьютере 4)
+.card-grid {
+  @include flex(row, flex-start, stretch, wrap, $gap-md);
+
+  .deck-card {
+    flex: 0 0 100%;
+  }
+}

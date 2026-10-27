@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Главная</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <section class="hero">
+      <div class="hero__text">
+        <h1 class="hero__title">Добро пожаловать, <span data-user-name>User</span>!</h1>
+        <p class="hero__sub">Сегодня на повторении 24 карточки. Продолжайте — до новой серии осталось совсем немного.</p>
+        <button class="btn" type="button" data-action="start-review">Начать повтор</button>
+      </div>
+      <div class="hero__stats">
+        <div class="stat"><span class="stat__value">🔥 6 дней</span><span class="stat__label">серия подряд</span></div>
+        <div class="stat"><span class="stat__value">128</span><span class="stat__label">карточек выучено</span></div>
+        <div class="stat"><span class="stat__value">#2</span><span class="stat__label">в турнире недели</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Последние используемые колоды</h2><a class="section__link" href="decks.html">Все →</a></div>
+      <div class="card-row">
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="badge-latex">∑ LaTeX</span></div>
+          <h3 class="deck-card__topic">Алгебра</h3>
+          <p class="deck-card__desc">Уравнения, функции, многочлены и формулы сокращённого умножения.</p>
+          <div class="deck-card__meta"><span>👤 User34</span><span>32 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="badge-latex">∑ LaTeX</span></div>
+          <h3 class="deck-card__topic">Геометрия</h3>
+          <p class="deck-card__desc">Планиметрия и стереометрия: теоремы, площади и объёмы фигур.</p>
+          <div class="deck-card__meta"><span>👤 User34</span><span>28 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="badge-latex">∑ LaTeX</span></div>
+          <h3 class="deck-card__topic">Тригонометрия</h3>
+          <p class="deck-card__desc">Синусы, косинусы, тождества и значения для основных углов.</p>
+          <div class="deck-card__meta"><span>👤 User34</span><span>24 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span></div>
+          <h3 class="deck-card__topic">Английский B1</h3>
+          <p class="deck-card__desc">Частые слова и фразовые глаголы уровня Intermediate.</p>
+          <div class="deck-card__meta"><span>👤 User7</span><span>120 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="badge-latex">∑ LaTeX</span></div>
+          <h3 class="deck-card__topic">Химия</h3>
+          <p class="deck-card__desc">Периодическая таблица, типы реакций и свойства веществ.</p>
+          <div class="deck-card__meta"><span>👤 User</span><span>36 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">История</h3>
+          <p class="deck-card__desc">Ключевые даты, события и исторические личности по эпохам.</p>
+          <div class="deck-card__meta"><span>👤 User12</span><span>64 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--it">IT</span></div>
+          <h3 class="deck-card__topic">Программирование</h3>
+          <p class="deck-card__desc">Структуры данных, алгоритмы сложности и основы ООП.</p>
+          <div class="deck-card__meta"><span>👤 User21</span><span>70 карточек</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Последние соревнования</h2><a class="section__link" href="competitions.html">Все →</a></div>
+      <div class="card-row">
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Алгебра</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 14 участников</span><span>до 20 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Геометрия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 15 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 9 участников</span><span>до 18 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--math">Математика</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">Тригонометрия</h3>
+          <p class="deck-card__desc">Состязание по колоде: 15 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 6 участников</span><span>старт 25 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Физика</h3>
+          <p class="deck-card__desc">Состязание по колоде: 25 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 22 участника</span><span>завершено 5 окт</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span><span class="tag tag--done">Завершено</span></div>
+          <h3 class="deck-card__topic">Биология</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 11 участников</span><span>завершено 1 окт</span></div>
+          <button class="btn btn--ghost btn--sm btn--block" type="button" data-action="results">Результаты</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--lang">Языки</span><span class="tag tag--live">Идёт</span></div>
+          <h3 class="deck-card__topic">Английский B1</h3>
+          <p class="deck-card__desc">Состязание по колоде: 30 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 31 участник</span><span>до 22 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span><span class="tag tag--soon">Скоро</span></div>
+          <h3 class="deck-card__topic">История</h3>
+          <p class="deck-card__desc">Состязание по колоде: 20 вопросов на скорость и точность. Побеждает тот, кто лучше выучил карточки.</p>
+          <div class="deck-card__meta"><span>👥 8 участников</span><span>старт 28 окт</span></div>
+          <button class="btn btn--sm btn--block" type="button" data-action="join">Участвовать</button>
+        </article>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Сейчас популярно</h2></div>
+      <div class="card-grid">
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--it">IT</span></div>
+          <h3 class="deck-card__topic">Программирование</h3>
+          <p class="deck-card__desc">Структуры данных, алгоритмы сложности и основы ООП.</p>
+          <div class="deck-card__meta"><span>👤 User21</span><span>70 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">История</h3>
+          <p class="deck-card__desc">Ключевые даты, события и исторические личности по эпохам.</p>
+          <div class="deck-card__meta"><span>👤 User12</span><span>64 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">Литература</h3>
+          <p class="deck-card__desc">Авторы, произведения и литературные направления.</p>
+          <div class="deck-card__meta"><span>👤 User9</span><span>52 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">Экономика</h3>
+          <p class="deck-card__desc">Спрос и предложение, рынки, инфляция и государственный бюджет.</p>
+          <div class="deck-card__meta"><span>👤 User15</span><span>40 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">География</h3>
+          <p class="deck-card__desc">Страны, столицы, климатические пояса и природные ресурсы.</p>
+          <div class="deck-card__meta"><span>👤 User5</span><span>58 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--science">Естественные науки</span></div>
+          <h3 class="deck-card__topic">Астрономия</h3>
+          <p class="deck-card__desc">Планеты, звёзды, галактики и основные астрономические константы.</p>
+          <div class="deck-card__meta"><span>👤 User2</span><span>22 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">Психология</h3>
+          <p class="deck-card__desc">Когнитивные процессы, память и основы поведения.</p>
+          <div class="deck-card__meta"><span>👤 User18</span><span>33 карточек</span></div>
+        </article>
+        <article class="deck-card">
+          <div class="deck-card__top"><span class="tag tag--human">Гуманитарные</span></div>
+          <h3 class="deck-card__topic">Философия</h3>
+          <p class="deck-card__desc">Школы, мыслители и основные философские понятия.</p>
+          <div class="deck-card__meta"><span>👤 User6</span><span>38 карточек</span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item active"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

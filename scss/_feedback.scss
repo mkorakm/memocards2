@@ -1,0 +1,104 @@
+// _feedback.scss — всплывающие уведомления (toast) и экраны-состояния
+// (успешная регистрация, страница 404)
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  z-index: 50;
+  @include flex(column, flex-end, center, nowrap, $gap-sm);
+  padding: 0 $gap-md;
+  pointer-events: none;
+}
+
+.toast {
+  @include flex(row, flex-start, center, nowrap, 10px);
+  max-width: 440px;
+  padding: 12px 16px;
+  border: 1px solid $color-border;
+  border-left: 5px solid $color-accent;
+  border-radius: 12px;
+  background: $color-surface;
+  box-shadow: $shadow-hover;
+  font-size: 14px;
+  pointer-events: auto;
+  animation: toast-in 0.2s ease-out;
+  transition: opacity 0.25s;
+
+  &.is-leaving { opacity: 0; }
+
+  &__icon {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: $color-accent;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  &--error {
+    border-left-color: $color-error;
+    .toast__icon { background: $color-error; }
+  }
+  &--success {
+    border-left-color: $color-success;
+    .toast__icon { background: $color-success; }
+  }
+}
+
+// экран-состояние: большая иконка, заголовок, текст, кнопки
+.state {
+  @include card-surface;
+  @include flex(column, flex-start, center, nowrap, $gap-md);
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  text-align: center;
+
+  &__icon {
+    @include flex(row, center, center);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: $color-success-bg;
+    color: $color-success;
+    font-size: 34px;
+    font-weight: 800;
+
+    &--error {
+      background: $color-error-bg;
+      color: $color-error;
+      font-size: 22px;
+    }
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 800;
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-muted;
+  }
+  &__actions {
+    @include flex(column, flex-start, stretch, nowrap, 10px);
+    width: 100%;
+    padding-top: 8px;
+  }
+}

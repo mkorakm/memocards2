@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Вход</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Вход</h1>
+      <p class="page-head__sub">Войдите в аккаунт, чтобы продолжить обучение</p>
+    </div>
+    <section class="auth">
+      <form class="auth__form" data-form="login" novalidate>
+        <div data-alert class="alert" role="alert" hidden></div>
+        <div class="field" data-field="email">
+          <label class="field__label" for="f-email">Email</label>
+          <div class="field__wrap">
+            <input class="field__input" id="f-email" name="email" type="email" placeholder="name@mail.ru" autocomplete="email">
+          </div>
+          <p class="field__error" role="alert" hidden></p>
+        </div>
+        <div class="field" data-field="password">
+          <label class="field__label" for="f-password">Пароль</label>
+          <div class="field__wrap">
+            <input class="field__input" id="f-password" name="password" type="password" placeholder="Ваш пароль" autocomplete="current-password">
+          <button class="field__toggle" type="button" data-action="toggle-password">Показать</button>
+          </div>
+          <p class="field__error" role="alert" hidden></p>
+        </div>
+        <button class="btn btn--block" type="submit">Войти</button>
+      </form>
+      <div class="auth__alt">
+        <span>Ещё нет аккаунта?</span>
+        <a class="btn btn--ghost btn--block" href="register.html">Создать аккаунт</a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item active"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
