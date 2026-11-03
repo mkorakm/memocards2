@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Оценка поддержки</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Оцените поддержку</h1>
+      <p class="page-head__sub">Чат №1042 · Анна. Ваше мнение помогает нам улучшать сервис</p>
+    </div>
+    <section class="auth">
+      <form class="auth__form" data-form="rating" novalidate>
+        <div data-alert class="alert" role="alert" hidden></div>
+        <div class="field" data-field="rating">
+          <label class="field__label">Ваша оценка</label>
+          <div class="rating" role="radiogroup" aria-label="Оценка"><button class="star" type="button" role="radio" aria-checked="false" aria-label="1 из 5" data-value="1">★</button><button class="star" type="button" role="radio" aria-checked="false" aria-label="2 из 5" data-value="2">★</button><button class="star" type="button" role="radio" aria-checked="false" aria-label="3 из 5" data-value="3">★</button><button class="star" type="button" role="radio" aria-checked="false" aria-label="4 из 5" data-value="4">★</button><button class="star" type="button" role="radio" aria-checked="false" aria-label="5 из 5" data-value="5">★</button></div>
+          <p class="rating-label" data-rating-label>Выберите оценку</p>
+          <p class="field__error" role="alert" hidden>Поставьте оценку, чтобы отправить отзыв</p>
+        </div>
+        <div class="field">
+          <label class="field__label">Что понравилось?</label>
+          <div class="tag-picker"><button class="chip" type="button" data-tag>Быстро ответили</button><button class="chip" type="button" data-tag>Вежливо</button><button class="chip" type="button" data-tag>Проблема решена</button><button class="chip" type="button" data-tag>Понятно объяснили</button><button class="chip" type="button" data-tag>Долго ждал</button></div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-comment">Комментарий (необязательно)</label>
+          <textarea class="field__input field__textarea" id="f-comment" name="comment" maxlength="500" placeholder="Расскажите, что можно улучшить"></textarea>
+          <div class="counter" data-counter>0 / 500</div>
+        </div>
+        <button class="btn btn--block" type="submit">Отправить</button>
+      </form>
+      <div class="auth__alt">
+        <a class="btn btn--ghost btn--block" href="chat-closed.html">Назад к чату</a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item active"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

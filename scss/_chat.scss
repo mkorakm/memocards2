@@ -1,0 +1,573 @@
+// _chat.scss — интерфейс чата технической поддержки.
+// Элементы: поле ввода (многострочное), кнопка отправки, пузыри сообщений,
+// аватары и статус, индикатор набора, время, системные сообщения,
+// вложения с превью, быстрые ответы, поиск по истории.
+
+@keyframes typing-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+// страница чата занимает ровно высоту экрана, прокручивается только лента сообщений
+.body--chat {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+// ---- Аватар и статус ----
+.avatar {
+  position: relative;
+  @include flex(row, center, center);
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: $color-accent;
+  color: $color-on-accent;
+  font-weight: 700;
+
+  &--sm { width: 30px; height: 30px; font-size: 13px; }
+  &--md { width: 42px; height: 42px; font-size: 17px; }
+  &--lg { width: 56px; height: 56px; font-size: 22px; }
+
+  &__dot {
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid $color-surface;
+    border-radius: 50%;
+    background: #9A9A9A;
+
+    &--online { background: $color-success; }
+  }
+}
+
+// ---- Шапка чата ----
+.chat-bar {
+  flex-shrink: 0;
+  background: $color-header;
+  box-shadow: $shadow-bar;
+
+  &__inner {
+    @include flex(row, flex-start, center, nowrap, 12px);
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 10px $gap-md;
+  }
+  &__back {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $color-surface;
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.1s;
+
+    &:hover { transform: translateX(-2px); }
+    &:active { transform: scale(0.92); }
+  }
+  &__info {
+    flex: 1;
+    min-width: 0;
+  }
+  &__name {
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &__status {
+    @include flex(row, flex-start, center, nowrap, 6px);
+    font-size: 12px;
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #9A9A9A;
+    }
+    &--online::before { background: $color-success; }
+  }
+  &__actions {
+    @include flex(row, flex-end, center, nowrap, $gap-sm);
+  }
+}
+
+// ---- Область чата ----
+.chat {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  @include flex(column, flex-start, stretch, nowrap);
+}
+
+.chat-banner {
+  flex-shrink: 0;
+  margin: 10px $gap-md 0;
+}
+
+.chat-log {
+  flex: 1;
+  min-height: 0;
+  padding: $gap-md;
+  overflow-y: auto;
+  @include flex(column, flex-start, stretch, nowrap, 10px);
+}
+
+// ---- Сообщения ----
+.msg {
+  @include flex(row, flex-start, flex-end, nowrap, $gap-sm);
+
+  &__col {
+    @include flex(column, flex-start, flex-start, nowrap, 4px);
+    max-width: 78%;
+  }
+  &__bubble {
+    padding: 10px 14px;
+    border: 1px solid $color-border;
+    border-radius: 18px;
+    background: $color-surface;
+    font-size: 14px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+  &__text {
+    margin: 0;
+  }
+  &__meta {
+    @include flex(row, flex-start, center, nowrap, 6px);
+    padding: 0 4px;
+    font-size: 11px;
+    color: $color-muted;
+  }
+  &__ticks {
+    color: $color-accent;
+    letter-spacing: -2px;
+  }
+
+  // сообщение оператора: слева, светлый пузырь
+  &--operator {
+    .msg__bubble { border-bottom-left-radius: 6px; }
+  }
+  // сообщение пользователя: справа, цветной пузырь
+  &--user {
+    justify-content: flex-end;
+
+    .msg__col { align-items: flex-end; }
+    .msg__bubble {
+      border-color: $color-accent;
+      border-bottom-right-radius: 6px;
+      background: $color-accent;
+      color: $color-on-accent;
+    }
+  }
+  // сообщение не отправлено
+  &--failed {
+    .msg__bubble {
+      border-color: $color-error;
+      background: $color-error-bg;
+      color: $color-error;
+    }
+    .msg__meta { color: $color-error; font-weight: 600; }
+  }
+}
+
+.msg__retry {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: $color-accent;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+// индикатор "оператор печатает"
+.typing {
+  @include flex(row, flex-start, center, nowrap, 5px);
+  padding: 14px 16px;
+
+  i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $color-muted;
+    animation: typing-bounce 1.2s infinite;
+
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+  }
+}
+
+// вложения внутри пузыря
+.bubble-img {
+  @include flex(column, flex-end, flex-start);
+  width: 190px;
+  max-width: 100%;
+  height: 120px;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #9CC9D1, #D9A4A8);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+}
+.bubble-file {
+  @include flex(row, flex-start, center, nowrap, 10px);
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+}
+
+// дата-разделитель и системные сообщения
+.date-sep {
+  @include flex(row, center, center);
+  font-size: 11px;
+  color: $color-muted;
+
+  span {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: $color-border;
+  }
+}
+
+.sys {
+  align-self: center;
+  max-width: 92%;
+  padding: 6px 12px;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  background: $color-surface;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+  color: $color-muted;
+
+  &--warn {
+    border-color: $color-warn;
+    border-radius: 12px;
+    background: $color-warn-bg;
+    color: $color-warn;
+  }
+  &--error {
+    border-color: $color-error;
+    border-radius: 12px;
+    background: $color-error-bg;
+    color: $color-error;
+  }
+  &--ok {
+    border-color: $color-success;
+    background: $color-success-bg;
+    color: $color-success;
+  }
+}
+
+// предложение оценить работу поддержки (после завершения чата)
+.rate-prompt {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, 10px);
+  align-self: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 16px;
+  text-align: center;
+
+  &__title { font-weight: 700; }
+  &__text  { font-size: 13px; color: $color-muted; }
+}
+
+// ---- Быстрые ответы ----
+.quick {
+  flex-shrink: 0;
+  @include flex(row, flex-start, center, nowrap, $gap-sm);
+  padding: 4px $gap-md 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border: 1px solid $color-accent;
+  border-radius: 999px;
+  background: $color-surface;
+  color: $color-accent;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-on-accent;
+  }
+  &:active { transform: scale(0.96); }
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 2px;
+  }
+  &.is-selected {
+    background: $color-accent;
+    color: $color-on-accent;
+  }
+}
+
+// ---- Вложения перед отправкой ----
+.pending {
+  flex-shrink: 0;
+  @include flex(row, flex-start, stretch, nowrap, $gap-sm);
+  padding: 0 $gap-md 8px;
+  overflow-x: auto;
+}
+
+.attach {
+  flex: 0 0 auto;
+  @include flex(row, flex-start, center, nowrap, 10px);
+  width: 230px;
+  padding: 8px 10px;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  background: $color-surface;
+  font-size: 12px;
+
+  &__thumb {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #9CC9D1, #D9A4A8);
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+
+    &--file {
+      background: $color-bg;
+      color: $color-accent;
+      font-size: 18px;
+    }
+  }
+  &__body {
+    flex: 1;
+    min-width: 0;
+    @include flex(column, center, stretch, nowrap, 3px);
+  }
+  &__name {
+    overflow: hidden;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &__size {
+    color: $color-muted;
+  }
+  &__remove {
+    padding: 4px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: $color-muted;
+
+    &:hover { color: $color-error; }
+  }
+
+  &--error {
+    border-color: $color-error;
+    background: $color-error-bg;
+
+    .attach__size { color: $color-error; }
+  }
+}
+
+.progress {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: $color-border;
+
+  i {
+    display: block;
+    height: 100%;
+    background: $color-accent;
+  }
+}
+
+// ---- Поле ввода и кнопка отправки ----
+.composer {
+  flex-shrink: 0;
+  @include flex(row, flex-start, flex-end, nowrap, $gap-sm);
+  padding: 10px $gap-md 6px;
+  border-top: 1px solid $color-border;
+  background: $color-surface;
+
+  &__attach {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 20px;
+    transition: background 0.15s, transform 0.1s;
+
+    &:hover { background: $color-bg; }
+    &:active { transform: scale(0.92); }
+    &:focus-visible {
+      outline: 3px solid $color-accent;
+      outline-offset: 2px;
+    }
+  }
+  &__input {
+    flex: 1;
+    min-width: 0;
+    max-height: 132px;
+    padding: 10px 14px;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    background: $color-bg;
+    color: $color-text;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    resize: none;
+
+    &::placeholder {
+      color: $color-muted;
+      opacity: 0.8;
+    }
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: $shadow-focus;
+    }
+  }
+  &__send {
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: $color-accent;
+    color: $color-on-accent;
+    transition: background 0.15s, transform 0.1s, opacity 0.15s;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    &:hover { background: $color-accent-dark; }
+    &:active { transform: scale(0.9); }
+    &:focus-visible {
+      outline: 3px solid $color-accent;
+      outline-offset: 2px;
+    }
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+.composer-hint {
+  flex-shrink: 0;
+  padding: 0 $gap-md 8px;
+  background: $color-surface;
+  font-size: 11px;
+  text-align: center;
+  color: $color-muted;
+}
+
+.chat-closed {
+  flex-shrink: 0;
+  @include flex(column, flex-start, stretch, nowrap, 10px);
+  padding: 14px $gap-md;
+  border-top: 1px solid $color-border;
+  background: $color-surface;
+  font-size: 13px;
+  text-align: center;
+  color: $color-muted;
+}
+
+// ---- Поиск по истории чата ----
+.chat-search {
+  flex-shrink: 0;
+  @include flex(row, flex-start, center, nowrap, 6px);
+  padding: 8px $gap-md;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius-chip;
+    background: $color-bg;
+    color: $color-text;
+    font-family: inherit;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: $shadow-focus;
+    }
+  }
+  &__count {
+    font-size: 12px;
+    white-space: nowrap;
+    color: $color-muted;
+  }
+  &__btn {
+    @include flex(row, center, center);
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: $color-text;
+    font-size: 16px;
+
+    &:hover { background: $color-bg; }
+    &:active { transform: scale(0.9); }
+  }
+  &__empty {
+    margin: 10px $gap-md 0;
+  }
+}
+
+.hl {
+  padding: 0 1px;
+  border-radius: 3px;
+  background: #FFE58F;
+  color: #2B2B2B;
+
+  &.is-current {
+    background: #FFB020;
+    outline: 2px solid #FFB020;
+  }
+}

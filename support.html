@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Поддержка</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Техническая поддержка</h1>
+      <p class="page-head__sub">Поможем с аккаунтом, колодами, формулами LaTeX и соревнованиями</p>
+    </div>
+    <section class="support-hero">
+      <div class="support-hero__head">
+        <div class="avatar avatar--lg"><span>А</span><i class="avatar__dot avatar__dot--online"></i></div>
+        <div>
+          <div class="support-hero__title">Служба поддержки MemoCards</div>
+          <div class="support-hero__status">Операторы онлайн · ответ в среднем за 2 минуты</div>
+        </div>
+      </div>
+      <a class="btn btn--block" href="chat-empty.html">Начать чат</a>
+      <p class="support-hero__sub">Работаем ежедневно с 9:00 до 21:00. Вне этого времени оставьте сообщение — ответим утром.</p>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Частые вопросы</h2></div>
+      <div class="topics"><a class="chip" href="chat-empty.html">Забыл пароль</a><a class="chip" href="chat-empty.html">Ошибка при входе</a><a class="chip" href="chat-empty.html">Не работает LaTeX</a><a class="chip" href="chat-empty.html">Как создать колоду</a><a class="chip" href="chat-empty.html">Про соревнования</a></div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Мои обращения</h2><a class="section__link" href="chat-history.html">Все обращения →</a></div>
+      <div class="ticket-list">
+        <article class="ticket" data-status="open">
+          <div class="ticket__top"><span class="tag tag--live">Открыто</span><span class="ticket__id">№1042 · сегодня</span></div>
+          <h3 class="ticket__title">Не отображаются формулы LaTeX</h3>
+          <p class="ticket__snippet">Анна: Исправьте на \frac{a}{b} и сохраните карточку.</p>
+          <div class="ticket__foot"><span>👤 Анна</span><a class="btn btn--sm" href="chat.html">Продолжить диалог</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№1031 · 12 окт</span></div>
+          <h3 class="ticket__title">Не приходит письмо для сброса пароля</h3>
+          <p class="ticket__snippet">Анна: Письмо попало в «Спам», отметила адрес как доверенный.</p>
+          <div class="ticket__foot"><span class="stars-static">★★★★★</span><a class="btn btn--ghost btn--sm" href="chat-closed.html">Открыть</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item active"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

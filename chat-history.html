@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Мои обращения</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+      <div class="header__brand">
+        <div class="header__logo">M</div>
+        <div class="header__title">MemoCards</div>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="cycle-theme" aria-label="Сменить цветовую тему" title="Сменить тему">🎨</button>
+        <a href="profile.html" class="header__user" aria-label="Профиль" data-user-initial>Г</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content container">
+    <div class="page-head">
+      <h1 class="page-head__title">Мои обращения</h1>
+      <p class="page-head__sub">История чатов с поддержкой: можно открыть, найти и оценить</p>
+    </div>
+    <section class="section">
+      <div class="section__head"><h2 class="section__title">Обращения</h2></div>
+      <div class="toolbar">
+        <input class="field__input" type="search" placeholder="Поиск по обращениям" aria-label="Поиск по обращениям" data-ticket-search style="flex: 1 1 100%">
+        <button class="chip is-selected" type="button" data-filter="all">Все</button><button class="chip" type="button" data-filter="open">Открытые</button><button class="chip" type="button" data-filter="closed">Закрытые</button>
+        <span class="toolbar__count" data-count>Найдено: 6</span>
+      </div>
+      <div class="ticket-list">
+        <article class="ticket" data-status="open">
+          <div class="ticket__top"><span class="tag tag--live">Открыто</span><span class="ticket__id">№1042 · сегодня</span></div>
+          <h3 class="ticket__title">Не отображаются формулы LaTeX</h3>
+          <p class="ticket__snippet">Анна: Исправьте на \frac{a}{b} и сохраните карточку.</p>
+          <div class="ticket__foot"><span>👤 Анна</span><a class="btn btn--sm" href="chat.html">Продолжить диалог</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№1031 · 12 окт</span></div>
+          <h3 class="ticket__title">Не приходит письмо для сброса пароля</h3>
+          <p class="ticket__snippet">Анна: Письмо попало в «Спам», отметила адрес как доверенный.</p>
+          <div class="ticket__foot"><span class="stars-static">★★★★★</span><a class="btn btn--ghost btn--sm" href="chat-closed.html">Открыть</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№1017 · 3 окт</span></div>
+          <h3 class="ticket__title">Как создать колоду из файла?</h3>
+          <p class="ticket__snippet">Максим: Импорт из CSV пока в разработке, пока можно добавлять карточки вручную.</p>
+          <div class="ticket__foot"><span>Без оценки</span><a class="btn btn--ghost btn--sm" href="chat-rating.html">Оценить</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№996 · 27 сен</span></div>
+          <h3 class="ticket__title">Не могу записаться на соревнование</h3>
+          <p class="ticket__snippet">Анна: Нужно войти в аккаунт — кнопка «Участвовать» доступна только после входа.</p>
+          <div class="ticket__foot"><span class="stars-static">★★★★★</span><a class="btn btn--ghost btn--sm" href="chat-closed.html">Открыть</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№974 · 19 сен</span></div>
+          <h3 class="ticket__title">Ошибка при регистрации</h3>
+          <p class="ticket__snippet">Максим: Пароль должен содержать не менее 8 символов и хотя бы одну цифру.</p>
+          <div class="ticket__foot"><span>Без оценки</span><a class="btn btn--ghost btn--sm" href="chat-rating.html">Оценить</a></div>
+        </article>
+        <article class="ticket" data-status="closed">
+          <div class="ticket__top"><span class="tag tag--done">Закрыто</span><span class="ticket__id">№951 · 8 сен</span></div>
+          <h3 class="ticket__title">Смена цветовой темы</h3>
+          <p class="ticket__snippet">Анна: Тему можно выбрать в профиле или кнопкой 🎨 в шапке.</p>
+          <div class="ticket__foot"><span class="stars-static">★★★★★</span><a class="btn btn--ghost btn--sm" href="chat-closed.html">Открыть</a></div>
+        </article>
+      </div>
+      <div class="empty" data-empty hidden>Ничего не найдено. Измените запрос или фильтр.</div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav__inner container">
+      <a href="index.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏠</span>Главная</a>
+      <a href="decks.html" class="bottom-nav__item"><span class="bottom-nav__icon">📚</span>Колоды</a>
+      <a href="competitions.html" class="bottom-nav__item"><span class="bottom-nav__icon">🏆</span>Соревнования</a>
+      <a href="profile.html" class="bottom-nav__item active"><span class="bottom-nav__icon">👤</span>Профиль</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

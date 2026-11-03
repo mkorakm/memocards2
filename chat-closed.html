@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Чат завершён</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body--chat">
+
+  <header class="chat-bar">
+    <div class="chat-bar__inner">
+      <a class="chat-bar__back" href="support.html" aria-label="Назад">←</a>
+      <div class="avatar avatar--md"><span>А</span><i class="avatar__dot"></i></div>
+      <div class="chat-bar__info">
+        <div class="chat-bar__name">Анна · поддержка</div>
+        <div class="chat-bar__status">Чат завершён</div>
+      </div>
+      <div class="chat-bar__actions">
+        <button class="icon-btn" type="button" data-action="chat-search" aria-label="Поиск по чату">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat">
+    <div class="chat-search" data-search hidden>
+      <input class="chat-search__input" type="search" placeholder="Поиск по сообщениям" value="" aria-label="Поиск по сообщениям">
+      <span class="chat-search__count" data-search-count></span>
+      <button class="chat-search__btn" type="button" data-search-prev aria-label="Предыдущее">↑</button>
+      <button class="chat-search__btn" type="button" data-search-next aria-label="Следующее">↓</button>
+      <button class="chat-search__btn" type="button" data-action="chat-search-close" aria-label="Закрыть поиск">✕</button>
+    </div>
+    <div class="chat-search__empty alert alert--info" data-search-empty hidden></div>
+    <div class="alert chat-banner" data-conn role="alert" hidden></div>
+    <div class="chat-log" data-log>
+      <div class="date-sep"><span>Сегодня</span></div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Сбросила пароль, но теперь не отображаются формулы LaTeX в карточке.</p></div>
+          <div class="msg__meta"><span>09:12</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="msg msg--operator">
+        <div class="avatar avatar--sm"><span>А</span></div>
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Пришлите, пожалуйста, скриншот карточки.</p></div>
+          <div class="msg__meta">Анна · 09:13</div>
+        </div>
+      </div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><div class="bubble-img">screenshot.png</div><p class="msg__text">Вот так выглядит карточка</p></div>
+          <div class="msg__meta"><span>09:15</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="msg msg--operator">
+        <div class="avatar avatar--sm"><span>А</span></div>
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Вижу. В формуле не закрыта фигурная скобка. Исправьте на \frac{a}{b} и сохраните карточку.</p></div>
+          <div class="msg__meta">Анна · 09:17</div>
+        </div>
+      </div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Получилось, спасибо!</p></div>
+          <div class="msg__meta"><span>09:18</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="sys">Чат завершён · 09:20</div>
+      <div class="rate-prompt">
+        <div class="rate-prompt__title">Оцените работу поддержки</div>
+        <div class="rate-prompt__text">Это займёт меньше минуты и поможет нам стать лучше.</div>
+        <a class="btn btn--block" href="chat-rating.html">Оценить поддержку</a>
+        <a class="btn btn--ghost btn--block" href="support.html">Пропустить</a>
+      </div>
+    </div>
+    <div class="chat-closed">
+      <span>Обращение №1042 закрыто</span>
+      <a class="btn btn--block" href="chat-empty.html">Начать новое обращение</a>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

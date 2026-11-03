@@ -2,7 +2,7 @@
 // Тема включается атрибутом на <html>: data-theme="dark" / "ocean".
 // По умолчанию (без атрибута) действует розовая тема.
 
-@mixin theme($bg, $surface, $header, $logo, $accent, $accent-dark, $on-accent, $text, $muted, $border, $error, $error-bg, $success, $success-bg, $shadow-rgb) {
+@mixin theme($bg, $surface, $header, $logo, $accent, $accent-dark, $on-accent, $text, $muted, $border, $error, $error-bg, $success, $success-bg, $warn, $warn-bg, $shadow-rgb) {
   --color-bg: #{$bg};
   --color-surface: #{$surface};
   --color-header: #{$header};
@@ -17,20 +17,22 @@
   --color-error-bg: #{$error-bg};
   --color-success: #{$success};
   --color-success-bg: #{$success-bg};
+  --color-warn: #{$warn};
+  --color-warn-bg: #{$warn-bg};
   --shadow-rgb: #{$shadow-rgb};
 }
 
 // Розовая (по умолчанию)
 :root {
-  @include theme(#FDF0F0, #FFFFFF, #D9A4A8, #8B2635, #B23A48, #8F2C38, #FFFFFF, #2B2B2B, #7A6568, #F3DADC, #C0392B, #FDECEA, #1F7A4D, #E3F5EB, 139 38 53);
+  @include theme(#FDF0F0, #FFFFFF, #D9A4A8, #8B2635, #B23A48, #8F2C38, #FFFFFF, #2B2B2B, #7A6568, #F3DADC, #C0392B, #FDECEA, #1F7A4D, #E3F5EB, #8A5A00, #FFF3D6, 139 38 53);
 }
 
 // Тёмная
 [data-theme='dark'] {
-  @include theme(#1B1416, #271D20, #4A2A31, #E0707F, #E0707F, #C9566A, #2A1215, #F5E9EB, #B9A2A6, #3B2C30, #FF8A80, #3B1F22, #7BD3A1, #1D3328, 0 0 0);
+  @include theme(#1B1416, #271D20, #4A2A31, #E0707F, #E0707F, #C9566A, #2A1215, #F5E9EB, #B9A2A6, #3B2C30, #FF8A80, #3B1F22, #7BD3A1, #1D3328, #F2C56B, #3A2E12, 0 0 0);
 }
 
 // Морская
 [data-theme='ocean'] {
-  @include theme(#EDF6F8, #FFFFFF, #9CC9D1, #145C6B, #1B7C8E, #145F6E, #FFFFFF, #1E2A2E, #5F7378, #D3E7EB, #C0392B, #FDECEA, #1F7A4D, #E3F5EB, 20 92 107);
+  @include theme(#EDF6F8, #FFFFFF, #9CC9D1, #145C6B, #1B7C8E, #145F6E, #FFFFFF, #1E2A2E, #5F7378, #D3E7EB, #C0392B, #FDECEA, #1F7A4D, #E3F5EB, #8A5A00, #FFF3D6, 20 92 107);
 }

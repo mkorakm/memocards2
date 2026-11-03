@@ -373,6 +373,9 @@
     });
   }
 
+  // доступно для других скриптов (chat.js)
+  window.MemoCards = { toast: toast, flash: flash };
+
   // ---------- запуск ----------
   initActions();
   markThemeButtons();

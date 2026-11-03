@@ -1,0 +1,145 @@
+// _support.scss — раздел поддержки: главный экран, список обращений, оценка качества
+
+.support-hero {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, 14px);
+  padding: 20px;
+
+  &__head {
+    @include flex(row, flex-start, center, nowrap, 14px);
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  &__status {
+    @include flex(row, flex-start, center, nowrap, 6px);
+    font-size: 13px;
+    color: $color-muted;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: $color-success;
+    }
+  }
+  &__sub {
+    font-size: 13px;
+    line-height: 1.45;
+    color: $color-muted;
+  }
+}
+
+.topics {
+  @include flex(row, flex-start, stretch, wrap, $gap-sm);
+}
+
+// ---- Обращения (история чатов) ----
+.ticket-list {
+  @include flex(row, flex-start, stretch, wrap, $gap-md);
+
+  .ticket {
+    flex: 0 0 100%;
+  }
+}
+
+.ticket {
+  @include card-surface;
+  @include flex(column, flex-start, stretch, nowrap, 10px);
+  padding: 16px;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-hover;
+  }
+  &[hidden] { display: none; }
+
+  &__top {
+    @include flex(row, space-between, center, nowrap, $gap-sm);
+  }
+  &__id {
+    font-size: 12px;
+    color: $color-muted;
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  &__snippet {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.45;
+    color: $color-muted;
+  }
+  &__foot {
+    @include flex(row, space-between, center, nowrap, $gap-sm);
+    padding-top: 10px;
+    border-top: 1px solid $color-border;
+    font-size: 12px;
+    color: $color-muted;
+  }
+}
+
+.stars-static {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: $color-star;
+}
+
+.empty {
+  @include card-surface;
+  padding: 24px;
+  font-size: 14px;
+  text-align: center;
+  color: $color-muted;
+}
+
+// ---- Оценка качества ----
+.rating {
+  @include flex(row, center, center, nowrap, 6px);
+  padding: 6px 0 2px;
+}
+
+.star {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 38px;
+  line-height: 1;
+  color: $color-border;
+  transition: transform 0.1s, color 0.1s;
+
+  &:hover { transform: scale(1.12); }
+  &:active { transform: scale(0.92); }
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 2px;
+  }
+  &.is-on { color: $color-star; }
+}
+
+.rating-label {
+  min-height: 22px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tag-picker {
+  @include flex(row, flex-start, stretch, wrap, $gap-sm);
+}
+
+.field__textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.counter {
+  font-size: 12px;
+  text-align: right;
+  color: $color-muted;
+}

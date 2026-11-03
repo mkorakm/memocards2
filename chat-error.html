@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoCards — Ошибка соединения</title>
+  <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('memocards_theme');if(t&&t!=='rose'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body--chat">
+
+  <header class="chat-bar">
+    <div class="chat-bar__inner">
+      <a class="chat-bar__back" href="support.html" aria-label="Назад">←</a>
+      <div class="avatar avatar--md"><span>А</span><i class="avatar__dot avatar__dot--online"></i></div>
+      <div class="chat-bar__info">
+        <div class="chat-bar__name">Анна · поддержка</div>
+        <div class="chat-bar__status chat-bar__status--online">Онлайн</div>
+      </div>
+      <div class="chat-bar__actions">
+        <button class="icon-btn" type="button" data-action="chat-search" aria-label="Поиск по чату">🔍</button>
+        <button class="btn btn--ghost btn--sm" type="button" data-action="end-chat">Завершить</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat">
+    <div class="chat-search" data-search hidden>
+      <input class="chat-search__input" type="search" placeholder="Поиск по сообщениям" value="" aria-label="Поиск по сообщениям">
+      <span class="chat-search__count" data-search-count></span>
+      <button class="chat-search__btn" type="button" data-search-prev aria-label="Предыдущее">↑</button>
+      <button class="chat-search__btn" type="button" data-search-next aria-label="Следующее">↓</button>
+      <button class="chat-search__btn" type="button" data-action="chat-search-close" aria-label="Закрыть поиск">✕</button>
+    </div>
+    <div class="chat-search__empty alert alert--info" data-search-empty hidden></div>
+    <div class="alert alert--error chat-banner" data-conn role="alert">
+      <span class="alert__icon">!</span>
+      <div><div class="alert__title">Нет соединения</div><div class="alert__text">Сообщения не отправляются. Пытаемся подключиться заново…</div></div>
+    </div>
+    <div class="chat-log" data-log>
+      <div class="date-sep"><span>Сегодня</span></div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Сбросила пароль, но теперь не отображаются формулы LaTeX в карточке.</p></div>
+          <div class="msg__meta"><span>09:12</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="msg msg--operator">
+        <div class="avatar avatar--sm"><span>А</span></div>
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Пришлите, пожалуйста, скриншот карточки.</p></div>
+          <div class="msg__meta">Анна · 09:13</div>
+        </div>
+      </div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><div class="bubble-img">screenshot.png</div><p class="msg__text">Вот так выглядит карточка</p></div>
+          <div class="msg__meta"><span>09:15</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="msg msg--operator">
+        <div class="avatar avatar--sm"><span>А</span></div>
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Вижу. В формуле не закрыта фигурная скобка. Исправьте на \frac{a}{b} и сохраните карточку.</p></div>
+          <div class="msg__meta">Анна · 09:17</div>
+        </div>
+      </div>
+      <div class="msg msg--user">
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Получилось, спасибо!</p></div>
+          <div class="msg__meta"><span>09:18</span><span class="msg__ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="sys sys--error">Соединение потеряно · 09:19</div>
+      <div class="msg msg--user msg--failed">
+        <div class="msg__col">
+          <div class="msg__bubble"><p class="msg__text">Ещё вопрос: как поменять цветовую тему?</p></div>
+          <div class="msg__meta"><span>09:20</span><span>Не отправлено</span><button class="msg__retry" type="button" data-action="retry">Повторить</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="pending" data-pending hidden>
+    </div>
+    <form class="composer" data-composer novalidate>
+      <button class="composer__attach" type="button" data-action="attach" aria-label="Прикрепить файл">📎</button>
+      <input type="file" data-file hidden multiple accept=".png,.jpg,.jpeg,.pdf,.txt,.zip">
+      <textarea class="composer__input" rows="1" placeholder="Введите ваше сообщение…" aria-label="Сообщение"></textarea>
+      <button class="composer__send" type="submit" aria-label="Отправить" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.4 21 12 3.4 3.6 3.3 10.1 15 12 3.3 13.9z"/></svg></button>
+    </form>
+    <p class="composer-hint">Enter — отправить, Shift+Enter — новая строка</p>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
